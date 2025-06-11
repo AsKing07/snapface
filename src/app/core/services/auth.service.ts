@@ -5,7 +5,8 @@ import { Injectable } from "@angular/core";
 })
 export class AuthService {
   private isAuthenticated = false;
-  private token = "MyFakeToken123"
+  private token! : string;
+
 
   constructor() {}
 
@@ -13,17 +14,14 @@ export class AuthService {
         return this.token;
     }
 
-  login(username: string, password: string): boolean {
+  login() {
     // Simulate a login process
-    if (username === "user" && password === "password") {
-      this.isAuthenticated = true;
-      return true;
-    }
-    return false;
+ this.token = "MyFakeToken123";
   }
 
   logout(): void {
     this.isAuthenticated = false;
+    this.token = "";
   }
 
   isLoggedIn(): boolean {
